@@ -13,13 +13,17 @@ class Student:
 
     def to_json(self, attrs=None):
         """Returns dictionary representation of instance.
-        If attrs is a list of strings, only those attributes are returned.
-        Otherwise, all attributes are returned."""
-        if isinstance(attrs, list) and all(type(attr) == str for attr in attrs):
-            return {key: getattr(self, key) for key in attrs if hasattr(self, key)}
+        Filters with attrs list if provided."""
+        if isinstance(attrs, list) and all(
+            isinstance(attr, str) for attr in attrs
+        ):
+            return {
+                key: getattr(self, key)
+                for key in attrs if hasattr(self, key)
+            }
         return self.__dict__
 
     def reload_from_json(self, json):
-        """Replaces all attributes of the Student instance using a dictionary."""
+        """Updates instance attributes from a dictionary."""
         for key, value in json.items():
             setattr(self, key, value)
