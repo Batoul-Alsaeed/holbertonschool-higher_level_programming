@@ -1,4 +1,5 @@
 # RESTful API Project – Holberton School by Tuwaiq Academy
+by Batoul Alsaeed ♥ 
 
 A hands-on project to explore RESTful API principles using Python, from raw HTTP interactions to secure, token-based authentication with Flask.
 
@@ -52,4 +53,3 @@ flask --app task_05_basic_security.py run
 
 📁 Repo: `holbertonschool-higher_level_programming/restful-api`  
 🎓 Part of the Holberton School curriculum – RESTful API module
-by Batoul Alsaeed ♥ 
