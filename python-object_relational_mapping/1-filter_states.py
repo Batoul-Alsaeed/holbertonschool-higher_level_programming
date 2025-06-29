@@ -3,30 +3,32 @@
 Lists all states with a name starting with N from the database
 """
 
-import MySQLdb
 import sys
+import MySQLdb
 
 if __name__ == "__main__":
-    # Arguments: username, password, db name
-    username, password, db_name = sys.argv[1], sys.argv[2], sys.argv[3]
+    user = sys.argv[1]
+    password = sys.argv[2]
+    db_name = sys.argv[3]
 
     # Connect to MySQL server
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
-        user=username,
+        user=user,
         passwd=password,
-        db=db_name
+        db=db_name,
+        charset="utf8"
     )
 
-    # Create a cursor and execute query
-    cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    cursor = db.cursor()
 
-    # Fetch and print results
-    for row in cur.fetchall():
+    # Select only states starting with uppercase 'N'
+    query = "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC"
+    cursor.execute(query)
+
+    for row in cursor.fetchall():
         print(row)
 
-    # Close
-    cur.close()
+    cursor.close()
     db.close()
