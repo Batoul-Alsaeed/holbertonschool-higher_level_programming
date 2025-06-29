@@ -20,8 +20,9 @@ if __name__ == "__main__":
 
     cur = db.cursor()
     # Use exact match and prevent SQL injection
-    cur.execute("SELECT * FROM states WHERE BINARY name = %s ORDER BY id ASC", (argv[4],))
-
+        cur.execute("""SELECT * FROM states
+                 WHERE BINARY name LIKE '{}%'
+                 ORDER BY id;""".format(argv[4]))
     rows = cur.fetchall()
     for row in rows:
         print(row)
