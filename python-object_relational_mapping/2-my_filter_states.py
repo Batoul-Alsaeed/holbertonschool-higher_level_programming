@@ -1,33 +1,30 @@
 #!/usr/bin/python3
 """
-Lists all states from the database hbtn_0e_0_usa where name matches the user input.
+Displays all values in the states table where name matches the argument.
+Usage: ./2-my_filter_states.py <mysql username> <mysql password> <database name> <state name searched>
 """
 
 import MySQLdb
-import sys
+from sys import argv
 
 if __name__ == "__main__":
-    # Read MySQL credentials and target state name from arguments
-    username, password, database, state_name = sys.argv[1:5]
-
-    # Connect to MySQL server on localhost:3306
+    # Connect to MySQL
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
-        user=username,
-        passwd=password,
-        db=database
+        user=argv[1],
+        passwd=argv[2],
+        db=argv[3],
+        charset="utf8"
     )
 
-    cursor = db.cursor()
+    cur = db.cursor()
+    # Use exact match and prevent SQL injection
+    cur.execute("SELECT * FROM states WHERE BINARY name = %s ORDER BY id ASC", (argv[4],))
 
-    # Build and execute query using string formatting (not SQL injection safe)
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(state_name)
-    cursor.execute(query)
-
-    # Display the query results
-    for row in cursor.fetchall():
+    rows = cur.fetchall()
+    for row in rows:
         print(row)
 
-    cursor.close()
+    cur.close()
     db.close()
