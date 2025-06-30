@@ -1,20 +1,15 @@
 #!/usr/bin/python3
-"""
-Creates 'states' table using SQLAlchemy
-"""
-
+"""Create the states table in the database using SQLAlchemy"""
 import sys
 from model_state import Base, State
 from sqlalchemy import create_engine
 
 if __name__ == "__main__":
-    # connect to database
+    # Create connection to MySQL database
     engine = create_engine(
-        'mysql+mysqldb://{}:{}@localhost/{}'.format(
-            sys.argv[1], sys.argv[2], sys.argv[3]
-        ),
+        f"mysql+mysqldb://{sys.argv[1]}:{sys.argv[2]}@localhost/{sys.argv[3]}",
         pool_pre_ping=True
     )
 
-    # create tables from models
+    # Create tables defined by Base subclasses
     Base.metadata.create_all(engine)
