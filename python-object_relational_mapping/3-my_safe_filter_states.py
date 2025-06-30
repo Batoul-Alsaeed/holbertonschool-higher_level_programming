@@ -1,19 +1,17 @@
 #!/usr/bin/python3
 """
-3-my_safe_filter_states.py
-
-Safe script to filter states in the hbtn_0e_0_usa database without risking SQL injection.
-Takes four arguments: mysql username, mysql password, database name, and state name to search.
-Displays matching records sorted by id.
+Safely fetches states from the database matching a given name using parameterized SQL query.
+Prevents SQL injection by using query parameters.
 """
 
 import MySQLdb
 import sys
 
-
-def main():
-    """Main function: connects to db, performs parameterized query, prints results."""
-    username, password, db_name, state_name = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
+if __name__ == "__main__":
+    username = sys.argv[1]
+    password = sys.argv[2]
+    db_name = sys.argv[3]
+    state_name = sys.argv[4]
 
     db = MySQLdb.connect(host="localhost", port=3306,
                          user=username, passwd=password, db=db_name)
@@ -23,7 +21,3 @@ def main():
         print(row)
     cur.close()
     db.close()
-
-
-if __name__ == "__main__":
-    main()
