@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """Defines City class mapped to cities table"""
-from sqlalchemy import Column, Integer, String, ForeignKey
+
 from model_state import Base
+from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.ext.declarative import declarative_base
 
 class City(Base):
     """City class that inherits from Base and maps to cities table"""
