@@ -1,23 +1,26 @@
 #!/usr/bin/python3
 """
-Safely fetches states from the database matching a given name using parameterized SQL query.
-Prevents SQL injection by using query parameters.
+Module that lists all states from the database hbtn_0e_0_usa
+safely filtering by name using parameterized query (case-sensitive)
 """
 
-import MySQLdb
 import sys
+import MySQLdb
+
 
 if __name__ == "__main__":
-    username = sys.argv[1]
-    password = sys.argv[2]
-    db_name = sys.argv[3]
-    state_name = sys.argv[4]
-
-    db = MySQLdb.connect(host="localhost", port=3306,
-                         user=username, passwd=password, db=db_name)
-    cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name = %s ORDER BY id ASC", (state_name,))
-    for row in cur.fetchall():
-        print(row)
-    cur.close()
+    db = MySQLdb.connect(
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3],
+        port=3306
+    )
+    cursor = db.cursor()
+    cursor.execute("SELECT * \
+    FROM states \
+    WHERE CONVERT(`name` USING Latin1) \
+    COLLATE Latin1_General_CS = %s ORDER BY id ASC;", (sys.argv[4],))
+    for state in cursor.fetchall():
+        print(state)
+    cursor.close()
     db.close()
