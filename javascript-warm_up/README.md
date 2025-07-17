@@ -1,9 +1,8 @@
-# 🚀 Welcome to JavaScript - Warm up
+# 🚀 Welcome to JavaScript – Warm up
 
-> A journey from `console.log('Hello World')` to custom objects and recursion 🧠  
-> Created with ♥️ by Batoul Alsaeed
-> Made in **Holberton X Tuwaiq Academy**. 
-
+> A journey from `console.log('Hello World')`
+> Created with ❤️ by Batoul Alsaeed  
+> Made in **Holberton X Tuwaiq Academy**  
 ---
 
 ## 🎯 Mission Objectives
@@ -74,4 +73,7 @@ node 13-add.js
 | `15` | Callbacks | Call a function x times |
 | `16` | Callback + Parameter | Call function after incrementing |
 | `17` | Object Method | Add `incr()` method to object to increase value |
+
+---
+> Empowering Saudi developers, one script at a time 🇸🇦
 
