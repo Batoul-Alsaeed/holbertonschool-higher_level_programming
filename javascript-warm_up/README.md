@@ -1,8 +1,8 @@
 # 🚀 Welcome to JavaScript – Warm up
 
 > A journey from `console.log('Hello World')`
-> 
 > Created with ❤️ by Batoul Alsaeed
+> 
 > Made in **Holberton X Tuwaiq Academy**  
 ---
 
