@@ -2,7 +2,7 @@
 
 > A journey from `console.log('Hello World')` to custom objects and recursion 🧠  
 > Created with ♥️ by Batoul Alsaeed
-> **Holberton X Tuwaiq Academy**. 
+> Made in **Holberton X Tuwaiq Academy**. 
 
 ---
 
