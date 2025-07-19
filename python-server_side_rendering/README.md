@@ -5,18 +5,6 @@ This mini-project explores how to build server-rendered web pages using **Flask*
 
 ---
 
-## 🚀 Features
-
-| Task | Description |
-|------|-------------|
-| `0`  | Generate personalized invitations from a template file using Python string replacement |
-| `1`  | Build a Flask app serving static HTML with reusable header/footer templates |
-| `2`  | Render dynamic lists from JSON using Jinja loops and conditionals |
-| `3`  | Load and filter product data from either a JSON or CSV file using query parameters |
-| `4`  | Extend the app to read data from a SQLite database (`products.db`) and display it via Jinja |
-
----
-
 ## 🗂️ Data Sources
 
 - ✅ `items.json`
@@ -58,4 +46,16 @@ http://localhost:5000/products?source=sql
 - `/products?source=sql`
 - `/products?source=sql&id=2`
 - `/products?source=xml` → (shows error)
+
+---
+
+## 🚀 Features
+
+| Task | Description |
+|------|-------------|
+| `0`  | Generate personalized invitations from a template file using Python string replacement |
+| `1`  | Build a Flask app serving static HTML with reusable header/footer templates |
+| `2`  | Render dynamic lists from JSON using Jinja loops and conditionals |
+| `3`  | Load and filter product data from either a JSON or CSV file using query parameters |
+| `4`  | Extend the app to read data from a SQLite database (`products.db`) and display it via Jinja |
 
