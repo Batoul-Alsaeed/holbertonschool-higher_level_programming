@@ -1,5 +1,5 @@
 # Python - Server-Side Rendering with Flask
-> ✨by **Batoul Alsaeed**
+> by ✨ **Batoul Alsaeed**
 
 This mini-project explores how to build server-rendered web pages using **Flask** and **Jinja2**, and how to load dynamic content from **JSON**, **CSV**, and **SQLite** sources.
 
@@ -59,4 +59,3 @@ http://localhost:5000/products?source=sql
 - `/products?source=sql&id=2`
 - `/products?source=xml` → (shows error)
 
----
